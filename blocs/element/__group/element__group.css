@@ -1,0 +1,6 @@
+.element__group {
+    display: flex;
+    max-width: 264px;
+    margin: 0 21px;
+    justify-content: space-between;
+}

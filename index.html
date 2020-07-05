@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body>
+<div class="page">
+    <header class="header">
+        <img src="./images/logo.svg" class="header__logo" alt="логотип">
+    </header>
+    <main class="content">
+        <section class="profile">
+            <div class="profile__info">
+                <img src="./images/kusto.jpg" class="profile__avatar"
+                     alt="кто живет на дне океана Жак Ив, square pants">
+                <div class="profile__data">
+                    <div class="profile__bundle">
+                        <h2 class="profile__name">Жак-ив-кусто</h2>
+                        <button class="profile__btn-edit">&#9998;</button>
+                    </div>
+                    <p class="profile__role">Исследователь океана</p>
+                </div>
+            </div>
+            <button class="profile__btn-add">+</button>
+        </section>
+        <dialog class="modal">
+            <div class="modal__content">
+                <p class="modal__close">+</p>
+                <h3 class="modal__title">Редактировать профиль</h3>
+                <div class="modal__form">
+                    <input class="modal__input modal__input_name" type="text" name="name" id="profile-name"
+                           placeholder="Жак-Ив-Кусто" required>
+                    <input class="modal__input modal__input_role" type="text" name="role" id="profile-role"
+                           placeholder="Исследователь океана" required>
+                    <button class="modal__save" type="submit">Сохранить</button>
+                </div>
+            </div>
+        </dialog>
+        <section class="elements">
+            <article class="element">
+                <div class="element__rectangle"></div>
+                <img src="./images/karachaevo.png" class="element__image" alt="Карачаевск">
+                <div class="element__group">
+                    <p class="element__text">Карачаевск</p>
+                    <img src="./images/heart.svg" class="element__like" alt="Нравится">
+                </div>
+            </article>
+            <article class="element">
+                <div class="element__rectangle"></div>
+                <img src="./images/elbrus.png" class="element__image" alt="Гора Эльбрус">
+                <div class="element__group">
+                    <p class="element__text">Гора Эльбрус</p>
+                    <img src="./images/heart.svg" class="element__like" alt="Нравится">
+                </div>
+            </article>
+            <article class="element">
+                <div class="element__rectangle"></div>
+                <img src="./images/domabay.png" class="element__image" alt="Домбай">
+                <div class="element__group">
+                    <p class="element__text">Домбай</p>
+                    <img src="./images/heart.svg" class="element__like" alt="Нравится">
+                </div>
+            </article>
+            <article class="element">
+                <div class="element__rectangle"></div>
+                <img src="./images/elbrus.png" class="element__image" alt="Гора Эльбрус">
+
+                <div class="element__group">
+                    <p class="element__text">Гора Эльбрус</p>
+                    <img src="./images/heart.svg" class="element__like" alt="Нравится">
+                </div>
+            </article>
+            <article class="element">
+                <div class="element__rectangle"></div>
+                <img src="./images/domabay.png" class="element__image" alt="Домбай">
+
+                <div class="element__group">
+                    <p class="element__text">Домбай</p>
+                    <img src="./images/heart.svg" class="element__like" alt="Нравится">
+                </div>
+            </article>
+            <article class="element">
+                <div class="element__rectangle"></div>
+                <img src="./images/karachaevo.png" class="element__image" alt="Карачаево">
+
+                <div class="element__group">
+                    <p class="element__text">Карачаево-Черкесия</p>
+                    <img src="./images/heart.svg" class="element__like" alt="Нравится">
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__author">© 2020 Mesto Russia</p>
+    </footer>
+</div>
+<script src="script/script.js"></script>
+</body>
+</html>

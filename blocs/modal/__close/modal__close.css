@@ -1,0 +1,17 @@
+.modal__close {
+    /*position: absolute;*/
+    /*width: 41px;*/
+    /*top: -32px;*/
+    /*right: -32px;*/
+    /*cursor: pointer;*/
+    /*color: white;*/
+    /*font-size: 32px;*/
+    position: absolute;
+    width: 41px;
+    top: -128px;
+    right: -35px;
+    cursor: pointer;
+    color: white;
+    font-size: 70px;
+    transform: rotate(45deg);
+}
