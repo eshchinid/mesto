@@ -6,18 +6,11 @@ const profileRole = document.querySelector('.profile__role');
 const editModalSave = document.querySelector('.modal__save');
 const editProfileName = document.querySelector('.modal__input_name');
 const editProfileRole = document.querySelector('.modal__input_role');
+const editSaveForm = document.querySelector('.modal__content');
 
 
 function toggleModal() {
     editModalWindow.classList.toggle("modal__opened");
-}
-
-openModalButton.addEventListener("click", toggleModal);
-closeModalButton.addEventListener("click", toggleModal);
-
-function defaultText() {
-    profileName.value = editProfileName.textContent;
-    profileRole.value = editProfileRole.textContent;
 }
 
 function saveInfo(event) {
@@ -27,8 +20,23 @@ function saveInfo(event) {
     toggleModal()
 }
 
-openModalButton.addEventListener('click', defaultText);
+
+openModalButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    // profileName.value = editProfileName.textContent;
+    // profileRole.value = editProfileRole.textContent;
+    profileName.textContent = editProfileName.value;
+    profileRole.textContent = editProfileRole.value;
+    toggleModal()
+});
+
+closeModalButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    toggleModal()
+});
 editModalSave.addEventListener('click', saveInfo);
+
+
 
 
 

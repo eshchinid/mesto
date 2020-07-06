@@ -2,9 +2,9 @@
 @import url("./__content/modal__content.css");
 @import url("./__form/modal__form.css");
 @import url("./__input/modal__input.css");
-@import url("./__opened/modal__opened.css");
 @import url("./__save/modal__save.css");
 @import url("./__title/modal__title.css");
+@import url("./__opened/modal__opened.css");
 
 .modal {
     position: fixed;

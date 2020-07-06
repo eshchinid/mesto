@@ -13,3 +13,10 @@
         margin-left: 8.5%;
     }
 }
+
+@media screen and (max-width: 320px) {
+    .footer__author {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
