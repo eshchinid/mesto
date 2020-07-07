@@ -23,8 +23,6 @@ function saveInfo(event) {
 
 openModalButton.addEventListener("click", (event) => {
     event.preventDefault();
-    // profileName.value = editProfileName.textContent;
-    // profileRole.value = editProfileRole.textContent;
     profileName.textContent = editProfileName.value;
     profileRole.textContent = editProfileRole.value;
     toggleModal()
