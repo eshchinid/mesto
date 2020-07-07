@@ -1,4 +1,4 @@
 .profile__bundle {
     display: flex;
-    flex-direction: row;
+    align-items: center;
 }

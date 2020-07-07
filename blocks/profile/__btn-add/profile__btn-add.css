@@ -17,6 +17,10 @@
     opacity: 0.6;
 }
 
+.profile__btn-add:active, .profile__btn-add:focus {
+    outline: none;
+}
+
 @media screen and (max-width: 920px) {
     .profile__btn-add {
         width: 282px;

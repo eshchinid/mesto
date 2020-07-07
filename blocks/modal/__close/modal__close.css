@@ -13,3 +13,16 @@
 .modal__close:active, .modal__close:focus {
     outline: none;
 }
+
+.modal__close:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (max-width: 550px) {
+    .modal__close {
+        color: black;
+        top: -7px;
+        right: 0;
+        font-size: 45px;
+    }
+}
