@@ -1,5 +1,5 @@
 .profile__role {
-    max-width: 320px;
+    max-width: 318px;
     font-family: Inter, sans-serif, Arial;
     font-style: normal;
     font-weight: normal;
@@ -20,6 +20,7 @@
 
 @media screen and (max-width: 400px) {
     .profile__role {
+        max-width: 280px;
         font-size: 14px;
         line-height: 17px;
     }

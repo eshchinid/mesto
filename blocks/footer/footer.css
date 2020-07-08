@@ -6,3 +6,8 @@
     justify-content: start;
     margin: 66px auto 0;
 }
+@media screen and (max-width: 520px) {
+    .footer {
+        margin: 48px auto 0;
+    }
+}
