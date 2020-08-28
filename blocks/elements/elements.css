@@ -1,15 +1,6 @@
+@import url(__table/elements__table.css);
+
 .elements {
-    max-width: 882px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 282px);
-    grid-gap: 18px;
-    margin: 50px auto 0;
-    justify-content: center;
-}
-
-
-@media screen and (max-width: 920px) {
-    .elements {
-        margin-top: 36px;
-    }
+    width: 100%;
+    box-sizing: border-box;
 }

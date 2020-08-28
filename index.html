@@ -3,110 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mesto</title>
-<!--    <link rel="stylesheet" href="./style.css">-->
+    <title>Mesto</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body>
-<div class="page">
-    <header class="header">
-        <img src="./images/logo.svg" class="header__logo" alt="логотип">
-    </header>
-    <main class="content">
-        <section class="profile">
-            <div class="profile__info">
-                <img src="./images/kusto.jpg" class="profile__avatar"
-                     alt="кто живет на дне океана Жак Ив, square pants">
-                <div class="profile__data">
-                    <div class="profile__bundle">
-                        <h1 class="profile__name">Жак-Ив-Кусто</h1>
-                        <button class="profile__btn-edit" type="button"><img src="./images/vector.svg"
-                                                                             class="profile__btn-edit-img"
-                                                                             alt="Изменить"></button>
-                    </div>
-                    <p class="profile__role">Исследователь океана</p>
-                </div>
+<body class="page">
+<header class="header">
+    <img class="logo" src="images/logo.svg" alt="Логотип сайта">
+</header>
+<main class="content">
+    <section class="profile">
+        <img src="images/kusto.jpg" alt="фотография Кусто" class="profile__avatar">
+        <div class="profile__info">
+            <div class="profile__name-edit">
+                <h1 class="profile__name">Жак-Ив-Кусто</h1>
+                <button type="button" class="profile__edit-button"></button>
             </div>
-            <button class="profile__btn-add" type="button"><img src="./images/plus.svg" class="profile__btn-add-img"
-                                                                alt="Добавить">
-            </button>
-        </section>
-        <div class="modal">
-
-            <div class="modal__content">
-                <button class="modal__close" type="button">+</button>
-                <h3 class="modal__title">Редактировать профиль</h3>
-                <form class="modal__form" name="modal-form">
-                    <input class="modal__input modal__input_name" type="text" name="profile-name" id="profile-name"
-                           placeholder="Жак-Ив-Кусто">
-                    <input class="modal__input modal__input_role" type="text" name="profile-role" id="profile-role"
-                           placeholder="Исследователь океана">
-                    <button class="modal__save" type="submit">Сохранить</button>
-                </form>
-            </div>
+            <p class="profile__role">Исследователь океана</p>
         </div>
-        <section class="elements">
-            <article class="element">
-                <img src="./images/karachaevo.png" class="element__image" alt="Карачаевск">
-                <div class="element__group">
-                    <p class="element__text">Карачаевск</p>
-                    <button type="button" class="element__like"><img src="./images/heart.svg" class="element__like-img"
-                                                                     alt="Нравится">
-                    </button>
-                </div>
-            </article>
-            <article class="element">
-                <img src="./images/elbrus.png" class="element__image" alt="Гора Эльбрус">
-                <div class="element__group">
-                    <p class="element__text">Гора Эльбрус</p>
-                    <button type="button" class="element__like"><img src="./images/heart.svg" class="element__like-img"
-                                                                     alt="Нравится">
-                    </button>
-                </div>
-            </article>
-            <article class="element">
-                <img src="./images/domabay.png" class="element__image" alt="Домбай">
-                <div class="element__group">
-                    <p class="element__text">Домбай</p>
-                    <button type="button" class="element__like"><img src="./images/heart.svg" class="element__like-img"
-                                                                     alt="Нравится">
-                    </button>
-                </div>
-            </article>
-            <article class="element">
-                <img src="./images/elbrus.png" class="element__image" alt="Гора Эльбрус">
+        <button type="button" class="profile__add-button"></button>
+    </section>
+    <section class="elements">
+        <ul class="elements__table">
+        </ul>
+    </section>
+</main>
+<footer class="footer">
+    <p class="footer__copyright">&commat; 2020 Mesto Russia</p>
+</footer>
 
-                <div class="element__group">
-                    <p class="element__text">Гора Эльбрус</p>
-                    <button type="button" class="element__like"><img src="./images/heart.svg" class="element__like-img"
-                                                                     alt="Нравится">
-                    </button>
-                </div>
-            </article>
-            <article class="element">
-                <img src="./images/domabay.png" class="element__image" alt="Домбай">
-                <div class="element__group">
-                    <p class="element__text">Домбай</p>
-                    <button type="button" class="element__like"><img src="./images/heart.svg" class="element__like-img"
-                                                                     alt="Нравится">
-                    </button>
-                </div>
-            </article>
-            <article class="element">
-                <img src="./images/karachaevo.png" class="element__image" alt="Карачаево">
-                <div class="element__group">
-                    <p class="element__text">Карачаево-Черкесия</p>
-                    <button type="button" class="element__like"><img src="./images/heart.svg" class="element__like-img"
-                                                                     alt="Нравится">
-                    </button>
-                </div>
-            </article>
-        </section>
-    </main>
-    <footer class="footer">
-        <p class="footer__author">&commat; 2020 Mesto Russia</p>
-    </footer>
+<div class="modal modal_profile">
+    <button type="button" class="modal__close-icon modal_profile__close-icon"></button>
+    <div class="modal__container">
+        <h3 class="modal__title">Редактировать профиль</h3>
+        <form class="modal__form modal_profile__form" name="edit_form">
+            <input class="modal__edit modal_profile__name" type="text" name="name" required>
+            <input class="modal__edit modal_profile__role" type="text" name="role" placeholder="role" required>
+            <button class="modal__button modal_profile__button" type="submit">Сохранить</button>
+        </form>
+    </div>
 </div>
-<script src="script/script.js"></script>
+<div class="modal modal_card">
+    <button class="modal__close-icon modal_card__close-icon" type="button"></button>
+    <div class="modal__container">
+        <h3 class="modal__title">Новое место</h3>
+        <form class="modal__form modal_card__form" name="edit_form">
+            <input class="modal__edit modal_card__title" type="text" placeholder="Название" name="title" required>
+            <input class="modal__edit modal_card__src" type="text" placeholder="Ссылка на картинку" name="subtitle"
+                   required>
+            <button class="modal__button modal_card__button" type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+<div class="modal modal_photo">
+    <div class="modal__container modal_photo__container">
+        <img class="modal_photo__img" src="#">
+        <h3 class="modal__title modal_photo__title"></h3>
+    </div>
+    <button class="modal__close-icon modal_photo__close" type="button"></button>
+</div>
+
+<template id="card">
+    <li class="element">
+        <img class="element__img" src="#">
+        <h3 class="element__name"></h3>
+        <button class="element__del" type="button"></button>
+        <button class="element__like" type="button"></button>
+    </li>
+</template>
+<script src="scripts/initialСards.js"></script>
+<script src="./scripts/index.js"></script>
 </body>
 </html>

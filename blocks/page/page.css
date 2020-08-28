@@ -1,13 +1,15 @@
 .page {
-    background-color: #000000;
-    color: white;
     margin: 0 auto;
-    height: 100%;
-    font-family: Inter, "Arial", sans-serif;
-    -moz-osx-font-smoothing: grayscale;
+    min-width: 300px;
+    background-color: #000000;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    color: white;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
 }
+

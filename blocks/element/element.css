@@ -1,8 +1,17 @@
-@import url("./__text/element__text.css");
-@import url("./__like/element__like.css");
-@import url("./__group/element__group.css");
+@import url(__img/element__img.css);
+@import url(__like/element__like.css);
+@import url(__like/element__like_active.css);
+@import url(__name/element__name.css);
+@import url(__del/element__del.css);
 
 .element {
-    background-color: white;
-    border-radius: 10px;
+  display: flex;
+  position: relative;
+  justify-self: center;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 281px;
+  max-height: 361px;
+  border-radius: 20px;
+  overflow: hidden;
 }
