@@ -3,8 +3,8 @@ const addCardButton = document.querySelector('.profile__add-button');
 const userProfileModal = document.querySelector('.modal_profile');
 const userName = document.querySelector('.profile__name');
 const userRole = document.querySelector('.profile__role');
-const userNameInput = document.querySelector('.modal_profile__name');
-const userRoleInput = document.querySelector('.modal_profile__role');
+const userNameInput = document.querySelector('.modal__input_type_name');
+const userRoleInput = document.querySelector('.modal__input_type_role');
 const saveProfileButton = document.querySelector('.modal_profile__form');
 
 const closeModalProfile = document.querySelector('#profile-close');
@@ -12,10 +12,10 @@ const closeModalCard = document.querySelector('#card-close');
 
 const userCardModal = document.querySelector('.modal_card');
 const imageModal = document.querySelector('.modal_photo');
-const closeImageModalButton = document.querySelector('.modal_photo__close');
+const closeImageModalButton = document.querySelector('.modal__close_photo');
 const saveCardButton = document.querySelector('.modal_card__form');
-const cardNameInput = document.querySelector('.modal_card__title');
-const cardLinkInput = document.querySelector('.modal_card__src');
+const cardNameInput = document.querySelector('.modal__input_type_title');
+const cardLinkInput = document.querySelector('.modal__input_type_src');
 const cardTemplate = document.querySelector('#card').content;
 const cardList = document.querySelector('.elements__table');
 

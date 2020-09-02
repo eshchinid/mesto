@@ -30,14 +30,20 @@
 <footer class="footer">
     <p class="footer__copyright">&commat; 2020 Mesto Russia</p>
 </footer>
-
+<!--Анита, добрый день! Есть ли такая возможность оценки работы только по ее функционалу? -->
+<!--БЭМ мягко говоря с первого упоминания вызывает рвотный рефлекс и аппатию. -->
+<!--Я преобретал курс только для того, чтобы познакомиться с FrontEnd разработкой, а не с псевдоструктурироваием. -->
+<!-- И как итог я теряю большое количество времени на соблдение псевдоструктуривания вместо интересных задач на разработку-->
+<!--На тему псевдоструктурирования - я текущий тимлид (BackEnd), занимаюсь крупными проектами и таких заморочек я не видел нигде-->
+<!--Вроде как я поправил, то что от меня требовалось, подобные имена классов "modal_profile__name" использовались только для JS -->
+<!--Заранее спасибо за ответ!-->
 <div class="modal modal_profile">
     <button type="button" class="modal__close" id="profile-close"></button>
     <div class="modal__container">
         <h3 class="modal__title">Редактировать профиль</h3>
         <form class="modal__form modal_profile__form" name="edit-form">
-            <input class="modal__edit modal_profile__name" type="text" name="name" placeholder="name" required>
-            <input class="modal__edit modal_profile__role" type="text" name="role" placeholder="role" required>
+            <input class="modal__edit modal__input_type_name" type="text" name="name" placeholder="name" required>
+            <input class="modal__edit modal__input_type_role" type="text" name="role" placeholder="role" required>
             <button class="modal__button modal_profile__button" type="submit">Сохранить</button>
         </form>
     </div>
@@ -47,10 +53,11 @@
     <div class="modal__container">
         <h3 class="modal__title">Новое место</h3>
         <form class="modal__form modal_card__form" name="new-place">
-            <input class="modal__edit modal_card__title" type="text" placeholder="Название" name="title" required>
-            <input class="modal__edit modal_card__src" type="text" placeholder="Ссылка на картинку" name="subtitle"
+            <input class="modal__edit modal__input_type_title" type="text" placeholder="Название" name="title" required>
+            <input class="modal__edit modal__input_type_src" type="text" placeholder="Ссылка на картинку"
+                   name="subtitle"
                    required>
-            <button class="modal__button modal_card__button" type="submit">Сохранить</button>
+            <button class="modal__button modal__button_card" type="submit">Сохранить</button>
         </form>
     </div>
 </div>
@@ -60,7 +67,7 @@
         <img class="modal_photo__img" src="#" alt="#">
         <h3 class="modal__title modal_photo__title"></h3>
     </div>
-    <button class="modal_photo__close modal__close" type="button"></button>
+    <button class="modal__close_photo modal__close" type="button"></button>
 </div>
 
 <template id="card">
