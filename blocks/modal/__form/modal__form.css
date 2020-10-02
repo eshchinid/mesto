@@ -1,3 +1,11 @@
 .modal__form {
-    width: 80%;
+  margin: 54px auto 0;
+  width: 358px;
+}
+
+@media screen and (max-width: 530px) {
+  .modal__form {
+    margin-top: 36px;
+    width: 200px;
+  }
 }

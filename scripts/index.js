@@ -1,124 +1,124 @@
-const editProfileButton = document.querySelector('.profile__edit-button');
-const addCardButton = document.querySelector('.profile__add-button');
-const userProfileModal = document.querySelector('.modal_profile');
-const userName = document.querySelector('.profile__name');
-const userRole = document.querySelector('.profile__role');
-const userNameInput = document.querySelector('.modal__input_type_name');
-const userRoleInput = document.querySelector('.modal__input_type_role');
-const saveProfileButton = document.querySelector('.modal_profile__form');
+const editButton = document.querySelector(".profile__edit-button");
+const profileName = document.querySelector(".profile__name");
+const profileJob = document.querySelector(".profile__job");
 
-const closeModalProfile = document.querySelector('#profile-close');
-const closeModalCard = document.querySelector('#card-close');
+const modalEdit = document.querySelector(".modal_edit");
+const closeImageButton = document.querySelector(".modal__close-button_image");
+const closeEditButton = document.querySelector(".modal__close-button_edit");
+const closeAddButton = document.querySelector(".modal__close-button_add");
+const modalEnterName = document.querySelector(".modal__input_name");
+const modalEnterJob = document.querySelector(".modal__input_job");
+const modalEditForm = document.querySelector(".modal__form_edit");
+const modalAdd = document.querySelector(".modal_add-card");
+const modalAddForm = document.querySelector(".modal__form_add-card");
+const listElements = document.querySelector(".elements");
+const modalFullImage = document.querySelector(".modal_full-image");
+const addButton = document.querySelector(".add-button");
+const inputTitle = document.querySelector(".modal__input_title");
+const inputSrc = document.querySelector(".modal__input_src");
+const fullImageSrc = document.querySelector(".modal__card-image");
+const fullImageTitle = document.querySelector(".modal__card-title");
+const cardTemplate = document.querySelector("#card").content;
 
-const userCardModal = document.querySelector('.modal_card');
-const imageModal = document.querySelector('.modal_photo');
-const closeImageModalButton = document.querySelector('.modal__close_photo');
-const saveCardButton = document.querySelector('.modal_card__form');
-const cardNameInput = document.querySelector('.modal__input_type_title');
-const cardLinkInput = document.querySelector('.modal__input_type_src');
-const cardTemplate = document.querySelector('#card').content;
-const cardList = document.querySelector('.elements__table');
 
+function modalOpen(modal) {
+  modal.classList.add("modal_opened");
+  modal.addEventListener("click", function(evt) {
+    closeOverlay(evt, modal);
+  });
+  document.addEventListener("keyup", function(evt) {
+    closeEscape(evt, modal);
+  });
+};
 
-// открытие модальных окон
+function modalClose(modal) {
+  modal.classList.remove("modal_opened");
+  modal.removeEventListener("click", function(evt) {
+    closeOverlay(evt, modal);
+  });
+  document.removeEventListener("keyup", function(evt) {
+    closeEscape(evt, modal);
+  });
+  disableError();
+};
 
-function toggleModal(modal) {
-    modal.classList.toggle('modal_opened')
-}
+initialCards.forEach(function(item) {
+  addCard(listElements, createCard(item.name, item.link));
+});
 
-//работа с профилем
-
-function saveProfile(evt) {
+function closeEscape(evt, modal) {
+  if (evt.key === "Escape") {
     evt.preventDefault();
-    userName.textContent = userNameInput.value;
-    userRole.textContent = userRoleInput.value;
-    toggleModal(userProfileModal);
-}
-
-function toggleProfileModal() {
-    userNameInput.value = userName.textContent;
-    userRoleInput.value = userRole.textContent;
-    toggleModal(userProfileModal);
-}
-
-
-//работа с карточками
-//работа с модальным окном "добавление фото"
-initialCards.forEach(function (item) {
-    addCard(createCard(item.name, item.link, item.alt));
-});
-
-function toggleAddCardModal() {
-    toggleModal(userCardModal);
-    cardNameInput.value = '';
-    cardLinkInput.value = '';
-}
-
-function addCard(cards) {
-    cardList.prepend(cards);
-}
-
-function saveCard(evt) {
-    addCard(createCard(cardNameInput.value, cardLinkInput.value));
-    evt.preventDefault();
-    toggleModal(userCardModal);
-}
-
-
-function toggleImageModal(evt, cardTitle) {
-    document.querySelector('.modal_photo__img').src = evt.src;
-    document.querySelector('.modal_photo__title').textContent = cardTitle;
-    document.querySelector('.modal_photo__img').alt = evt.alt;
-    toggleModal(imageModal);
-}
-
-const handlePreviewPicture = (data) => {
-    toggleImageModal(data.event, data.textContent);
+    modalClose(modal);
+  };
 };
 
-function handleLikeIcon() {
-    this.classList.toggle('element__like_active');
+function closeOverlay(evt, modal) {
+  if (evt.target.classList.contains("modal")) {
+    modalClose(modal);
+  };
 };
 
-function handleDeleteCard() {
-    const delCard = this.closest('.element');
-    delCard.remove();
+function changeProfileData(evt) {
+  evt.preventDefault();
+  const name = modalEnterName.value;
+  const role = modalEnterJob.value;
+  profileName.textContent = name;
+  profileJob.textContent = role;
+  modalClose(modalEdit);
 };
 
-function createCard(cardName, cardLink, cardAlt) {
-    const card = cardTemplate.cloneNode(true);
-    const imgElement = card.querySelector('.element__img');
-    const nameElement = card.querySelector('.element__name');
-    const delButton = card.querySelector('.element__del');
-    const likeButton = card.querySelector('.element__like');
+function createCard(title, src) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImage = cardElement.querySelector(".element__image");
 
-    imgElement.src = cardLink;
-    nameElement.textContent = cardName;
-    imgElement.alt = cardAlt;
+  cardElement.querySelector(".element__title").textContent = title;
+  cardImage.src = src;
+  cardImage.addEventListener("click", function(evt) {
+    fullImageTitle.textContent = title;
+    fullImageSrc.src = src;
 
-    imgElement.addEventListener('click', function (evt) {
-        handlePreviewPicture({event: evt.target, textContent: nameElement.textContent})
-    });
-    likeButton.addEventListener('click', handleLikeIcon);
-    delButton.addEventListener('click', handleDeleteCard);
-    return card;
-}
+    modalOpen(modalFullImage);
+  });
+  cardElement.querySelector(".element__like").addEventListener("click", function(evt) {
+    evt.target.classList.toggle("element__like_active");
+  });
+  cardElement.querySelector(".element__delete-button").addEventListener("click", function(evt) {
+    const element = evt.target.closest(".element");
+    element.remove();
+  });
+  return cardElement;
+};
+
+function addCard(container, element) {
+  container.prepend(element);
+};
 
 
-editProfileButton.addEventListener('click', toggleProfileModal);
-addCardButton.addEventListener('click', toggleAddCardModal);
-saveProfileButton.addEventListener('submit', saveProfile);
-saveCardButton.addEventListener('submit', saveCard);
 
-closeModalCard.addEventListener('click', function () {
-    toggleModal(userCardModal);
+editButton.addEventListener("click", function() {
+  modalEnterName.value = profileName.textContent;
+  modalEnterJob.value = profileJob.textContent;
+
+  modalOpen(modalEdit);
 });
 
-closeModalProfile.addEventListener('click', function () {
-    toggleModal(userProfileModal);
+closeEditButton.addEventListener("click", function() {modalClose(modalEdit);});
+
+addButton.addEventListener("click", function() {
+  modalAddForm.reset();
+
+  modalOpen(modalAdd);
 });
 
-closeImageModalButton.addEventListener('click', function () {
-    toggleModal(imageModal)
+closeAddButton.addEventListener("click", function(){modalClose(modalAdd)});
+
+modalEditForm.addEventListener("submit", changeProfileData);
+
+modalAddForm.addEventListener("submit", function(evt) {
+  evt.preventDefault();
+  addCard(listElements, createCard(inputTitle.value, inputSrc.value));
+  modalClose(modalAdd);
 });
 
+closeImageButton.addEventListener("click", function(){modalClose(modalFullImage)});

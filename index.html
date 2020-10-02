@@ -1,84 +1,87 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Mesto Russia</title>
 </head>
-<body class="page">
-<header class="header">
-    <img class="logo" src="images/logo.svg" alt="Логотип сайта">
-</header>
-<main class="content">
-    <section class="profile">
-        <img src="images/kusto.jpg" alt="фотография Кусто" class="profile__avatar">
+<body>
+  <div class="page">
+    <header class="header">
+      <img src="images/logo.svg" class="header__logo" alt="Логотип">
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img src="images/avatar.jpg" class="profile__avatar" alt="Аватар профиля">
         <div class="profile__info">
-            <div class="profile__name-edit">
-                <h1 class="profile__name">Жак-Ив-Кусто</h1>
-                <button type="button" class="profile__edit-button"></button>
-            </div>
-            <p class="profile__role">Исследователь океана</p>
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+          <p class="profile__job">Исследователь океана</p>
         </div>
-        <button type="button" class="profile__add-button"></button>
-    </section>
-    <section class="elements">
-        <ul class="elements__table">
-        </ul>
-    </section>
-</main>
-<footer class="footer">
-    <p class="footer__copyright">&commat; 2020 Mesto Russia</p>
-</footer>
-<!--Анита, добрый день! Есть ли такая возможность оценки работы только по ее функционалу? -->
-<!--БЭМ мягко говоря с первого упоминания вызывает рвотный рефлекс и аппатию. -->
-<!--Я преобретал курс только для того, чтобы познакомиться с FrontEnd разработкой, а не с псевдоструктурироваием. -->
-<!-- И как итог я теряю большое количество времени на соблдение псевдоструктуривания вместо интересных задач на разработку-->
-<!--На тему псевдоструктурирования - я текущий тимлид (BackEnd), занимаюсь крупными проектами и таких заморочек я не видел нигде-->
-<!--Вроде как я поправил, то что от меня требовалось, подобные имена классов "modal_profile__name" использовались только для JS -->
-<!--Заранее спасибо за ответ!-->
-<div class="modal modal_profile">
-    <button type="button" class="modal__close" id="profile-close"></button>
-    <div class="modal__container">
-        <h3 class="modal__title">Редактировать профиль</h3>
-        <form class="modal__form modal_profile__form" name="edit-form">
-            <input class="modal__edit modal__input_type_name" type="text" name="name" placeholder="name" required>
-            <input class="modal__edit modal__input_type_role" type="text" name="role" placeholder="role" required>
-            <button class="modal__button modal_profile__button" type="submit">Сохранить</button>
-        </form>
-    </div>
-</div>
-<div class="modal modal_card">
-    <button class="modal__close" type="button" id="card-close"></button>
-    <div class="modal__container">
-        <h3 class="modal__title">Новое место</h3>
-        <form class="modal__form modal_card__form" name="new-place">
-            <input class="modal__edit modal__input_type_title" type="text" placeholder="Название" name="title" required>
-            <input class="modal__edit modal__input_type_src" type="text" placeholder="Ссылка на картинку"
-                   name="subtitle"
-                   required>
-            <button class="modal__button modal__button_card" type="submit">Сохранить</button>
-        </form>
-    </div>
-</div>
-
-<div class="modal modal_photo">
-    <div class="modal__container modal_photo__container">
-        <img class="modal_photo__img" src="#" alt="#">
-        <h3 class="modal__title modal_photo__title"></h3>
-    </div>
-    <button class="modal__close_photo modal__close" type="button"></button>
-</div>
-
-<template id="card">
+        <button class="add-button" type="button"></button>
+      </section>
+      <section class="cards">
+        <ul class ="elements"></ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+  </div>
+  <template id="card">
     <li class="element">
-        <img class="element__img" src="#" alt="#">
-        <h3 class="element__name"></h3>
-        <button class="element__del" type="button"></button>
+      <button type="button" class="element__delete-button"></button>
+      <img class="element__image" alt="Картинка">
+      <div class="element__info">
+        <h2 class="element__title"></h2>
         <button class="element__like" type="button"></button>
+      </div>
     </li>
-</template>
-<script src="./scripts/initialСards.js"></script>
-<script src="./scripts/index.js"></script>
+  </template>
+  <section class="modal modal_edit">
+    <div class="modal__container">
+      <button class="modal__close-button modal__close-button_edit" type="button"></button>
+      <h3 class="modal__header">
+        Редактировать профиль
+      </h3>
+      <form class="modal__form modal__form_edit" name="edit-form" action="index.html" method="GET" novalidate>
+        <input id="input-name" type="text" placeholder="type name" class="modal__input modal__input_name"
+        name="input-name" minlength=2 maxlength=40 required>
+        <span id="input-name-error" class="modal__input_error"></span>
+        <input id="input-job" type="text" placeholder="type role" class="modal__input modal__input_job"
+        name="input-job"minlength=2 maxlength=200 required>
+        <span id="input-job-error" class="modal__input_error"></span>
+        <button type="submit" class="modal__save-button">Сохранить</button>
+      </form>
+    </div>
+  </section>
+  <section class="modal modal_add-card">
+    <div class="modal__container">
+      <button class="modal__close-button modal__close-button_add" type="button"></button>
+      <h3 class="modal__header">
+        Новое место
+      </h3>
+      <form class="modal__form modal__form_add-card" name="card-form" action="index.html" method="GET" novalidate>
+        <input id="input-title" type="text" placeholder="type title" class="modal__input modal__input_title"
+        name="input-title" minlength=2 maxlength=30 required>
+        <span id="input-title-error" class="modal__input_error"></span>
+        <input id="input-src" type="url" placeholder="picture link" class="modal__input modal__input_src"
+        name="input-src" required>
+        <span id="input-src-error" class="modal__input_error"></span>
+        <button type="submit" class="modal__save-button">Создать</button>
+      </form>
+    </div>
+  </section>
+  <section class="modal modal_full-image">
+    <div class="modal__card">
+      <button class="modal__close-button modal__close-button_image" type="button"></button>
+      <img class="modal__card-image" alt="Картинка">
+      <h2 class="modal__card-title"></h2>
+    </div>
+  </section>
+  <script src="scripts/initialCards.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="scripts/valid.js"></script>
 </body>
 </html>

@@ -1,22 +1,11 @@
-@import url(__copyright/footer__copyright.css);
-
 .footer {
   max-width: 882px;
-  margin: 0 auto 60px auto;
+  padding: 66px 0 60px;
+  margin: 0 auto;
 }
-
-@media all and (max-width: 945px) {
+@media screen and (max-width: 922px) {
   .footer {
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin: 0 19px;
+    padding: 48px 0 36px;
   }
 }
-
-@media all and (max-width: 330px) {
-  .footer {
-    margin-left: 2vw;
-    margin-right: 2vw;
-  }
-}
-
-
