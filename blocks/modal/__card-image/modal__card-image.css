@@ -1,3 +1,5 @@
 .modal__card-image {
+  width: auto;
   height: 75vh;
+  background-color: transparent;
 }
