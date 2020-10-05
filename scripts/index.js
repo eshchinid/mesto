@@ -91,13 +91,13 @@ function changeProfileData(evt) {
 
 
 
-function createCard(title, src, alt) {
+function createCard(title, src) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".element__image");
 
   cardElement.querySelector(".element__title").textContent = title;
   cardImage.src = src;
-  cardElement.alt = title;
+  cardImage.alt = title;
   cardImage.addEventListener("click", function(evt) {
     fullImageTitle.textContent = title;
     fullImageSrc.src = src;
