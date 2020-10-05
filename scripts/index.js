@@ -62,7 +62,7 @@ function closeModal(modal) {
 
 
 initialCards.forEach(function(item) {
-  addCard(listElements, createCard(item.name, item.link, item.alt));
+  addCard(listElements, createCard(item.name, item.link));
 });
 
 
