@@ -33,7 +33,7 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
   modal.removeEventListener("click", closeOverlay.bind(null, modal));
   document.removeEventListener("keyup", closeEscape.bind(null, modal));
-  disableError();
+  disableError(allClasses);
 };
 
 

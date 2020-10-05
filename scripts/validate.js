@@ -1,3 +1,14 @@
+const allClasses = {
+  inputModalError:".modal__input_error",
+  inputModal:".modal__input",
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__save-button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__input_error_active"
+}
+
 function showInputError(formElement, inputElement, errorMessage, allClasses) {
   const inputErrorText = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add(allClasses.inputErrorClass);
@@ -79,13 +90,4 @@ function enableTextValidation(allClasses) {
   });
 };
 
-enableTextValidation({
-  inputModalError:".modal__input_error",
-  inputModal:".modal__input",
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__save-button",
-  inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__input_error_active"
-});
+enableTextValidation(allClasses);
