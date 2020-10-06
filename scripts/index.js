@@ -25,18 +25,29 @@ const cardTemplate = document.querySelector("#card").content;
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  modal.addEventListener("click", closeOverlay.bind(null, modal));
-  document.addEventListener("keyup", closeEscape.bind(null, modal));
+  modal.addEventListener("click", closeOverlay);
+  document.addEventListener("keyup", closeEscape);
 };
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  modal.removeEventListener("click", closeOverlay.bind(null, modal));
-  document.removeEventListener("keyup", closeEscape.bind(null, modal));
+  modal.removeEventListener("click", closeOverlay);
+  document.removeEventListener("keyup", closeEscape);
   disableError(allClasses);
 };
 
-
+// function openModal(modal) {
+//   modal.classList.add("modal_opened");
+//   modal.addEventListener("click", closeOverlay.bind(null, modal));
+//   document.addEventListener("keyup", closeEscape.bind(null, modal));
+// };
+//
+// function closeModal(modal) {
+//   modal.classList.remove("modal_opened");
+//   modal.removeEventListener("click", closeOverlay.bind(null, modal));
+//   document.removeEventListener("keyup", closeEscape.bind(null, modal));
+//   disableError(allClasses);
+// };
 // function openModal(modal) {
 //   modal.classList.add("modal_opened");
 //   modal.addEventListener("click", function(evt) {
@@ -46,8 +57,6 @@ function closeModal(modal) {
 //     closeEscape(evt, modal);
 //   });
 // };
-//
-//
 //
 // function closeModal(modal) {
 //   modal.classList.remove("modal_opened");
@@ -66,16 +75,17 @@ initialCards.forEach(function(item) {
 });
 
 
-function closeEscape (modal, evt) {
+function closeEscape (evt) {
   if (evt.key === "Escape") {
     evt.preventDefault();
+    const modal = document.querySelector(".modal_opened");
     closeModal(modal);
   };
 };
 
-function closeOverlay(modal, evt) {
+function closeOverlay(evt) {
   if (evt.target.classList.contains("modal")) {
-    closeModal(modal);
+    closeModal(evt.target);
   };
 };
 
@@ -88,7 +98,6 @@ function changeProfileData(evt) {
   profileJob.textContent = role;
   closeModal(modalEdit);
 };
-
 
 
 function createCard(title, src) {
